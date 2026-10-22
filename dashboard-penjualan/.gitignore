@@ -1,0 +1,15 @@
+# Virtual environment (jangan diunggah, ukurannya besar dan bisa dibuat ulang)
+.venv/
+venv/
+
+# Cache Python
+__pycache__/
+*.pyc
+
+# Rahasia (password, API key, token)
+.env
+.streamlit/secrets.toml
+
+# File sistem
+.DS_Store
+Thumbs.db
