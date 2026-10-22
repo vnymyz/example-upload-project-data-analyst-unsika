@@ -356,7 +356,7 @@ Hal yang perlu diperhatikan:
 
 ```text
 streamlit==1.50.0
-pandas==2.3.1
+pandas==2.3.3
 plotly==6.5.2
 ```
 
@@ -1178,7 +1178,7 @@ Langkah ini didemokan mentor. Peserta mengikuti di layar, atau mencobanya sendir
 
 5. Klik **Advanced settings** (opsional):
 
-   - **Python version** — pilih versi yang sama dengan Python di komputermu (misalnya 3.13). Cek dengan `python --version`.
+   - **Python version** — pilih versi yang sama dengan Python di komputermu (misalnya 3.13). Cek dengan `python --version`. **Jangan biarkan versi paling baru (misalnya 3.14) kalau library belum punya paket siap pakai untuknya.** Streamlit Cloud lalu mencoba membuatnya dari kode sumber, yang sangat lama atau gagal, dan layar terlihat berputar terus.
 
    - **Secrets** — tempat menaruh password atau API key. **Tidak dipakai di proyek ini**, dan kolom ini dibiarkan kosong. Kalau suatu saat butuh, di sinilah rahasia ditaruh, **bukan di kode**.
 
@@ -1271,6 +1271,7 @@ Dashboard sudah berjalan di komputermu, kodenya tersimpan di GitHub, dan dashboa
 | Isi CSV diganti tapi hasil lama masih tampil | `st.cache_data` menyimpan hasil lama | Tekan `C` lalu **Clear cache**, atau jalankan ulang Streamlit |
 | Font tidak berubah | Streamlit belum dijalankan ulang, atau tidak ada internet | `Ctrl + C`, jalankan lagi, dan cek koneksi |
 | `git push` ditolak | Belum login GitHub, atau repository tidak kosong | Lihat daftar error di Langkah 14 |
+| Di Streamlit Cloud: layar "Your app is in the oven" berputar terus di tahap `Processing dependencies` | Versi Python terlalu baru untuk versi library di `requirements.txt` (tidak ada paket siap pakai, jadi dibuat dari kode sumber) | Hapus aplikasinya lalu deploy ulang dengan **Python version** 3.13 di Advanced settings. Pastikan versi library di `requirements.txt` punya paket untuk versi Python itu |
 | Di Streamlit Cloud: `ModuleNotFoundError` | Library tidak ada di `requirements.txt` | Tambahkan, lalu push |
 | Di Streamlit Cloud: `FileNotFoundError` | File data belum di-push, atau `app.py` tidak di akar repo | Cek isi repository di GitHub |
 | Perubahan tidak tampil di alamat publik | Belum di-push, atau cache browser | Cek commit di GitHub, lalu `Ctrl + Shift + R` |
