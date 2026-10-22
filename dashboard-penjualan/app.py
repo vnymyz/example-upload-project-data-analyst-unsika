@@ -1,13 +1,18 @@
+from pathlib import Path
+
 import pandas as pd
 import plotly.express as px
 import streamlit as st
 
 st.set_page_config(page_title="Dashboard Penjualan", layout="wide")
 
+# Alamat data dihitung dari lokasi app.py, jadi tetap benar dari folder mana pun dashboard dijalankan
+FILE_DATA = Path(__file__).parent / "data" / "data.csv"
+
 
 @st.cache_data
 def baca_data():
-    df = pd.read_csv("data/data.csv")
+    df = pd.read_csv(FILE_DATA)
     df["tanggal"] = pd.to_datetime(df["tanggal"])
     df["bulan"] = df["tanggal"].dt.to_period("M").astype(str)
     return df
